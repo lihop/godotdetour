@@ -91,6 +91,9 @@ else:
 
 cpp_library += '.' + str(bits)
 
+# add PATH to environment so scons can find commands such as g++, etc.
+env.AppendENVPath('PATH', os.getenv('PATH'))
+
 # make sure our binding library is properly includes
 env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/', cpp_bindings_path + 'include/gen/'])
 env.Append(LIBPATH=[cpp_bindings_path + 'bin/'])
